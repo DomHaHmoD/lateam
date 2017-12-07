@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+
+import datetime
+
+#creation d'une class
+class Captor:
+	def __init__(self):
+		self.adresse = adresse
+		self.nomObjet = nomObjet
+		self.lastAction = lastAction
+
+	def lastOperation(self):
+		if self.lastAction > 
+
+
