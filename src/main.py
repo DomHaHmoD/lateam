@@ -6,7 +6,7 @@ def test_conf():
 def scanner():
     return [12345,67890,54321]
 
-def filtrer(x,y):
+def filter(x,y):
     return [12345]
 def send_mail(x,y,z):
     return True
@@ -35,7 +35,7 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
         if global_list == None: #On s'assure qu'il y a quelque chose
             time.sleep(5) # On attend 5 sec avant de relancer le scan blutooth
             continue
-        alert_list = filtrer(global_list,sensors_list) # on crée notre liste d'alerte
+        alert_list = filter(global_list,sensors_list) # on crée notre liste d'alerte
         if alert_list == None: #si ya rien on rescanne immediatement
             continue
         mail_sended = send_mail(alert_list,destinataires_list,waiting_list)
