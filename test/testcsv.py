@@ -9,18 +9,23 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 dest1 = "maxime.girma@hotmail.fr"
-dest2 = "kev_wfc@hotmail.fr"
+dest2 = "dominique.hathi@gmail.com"
+destinatairenotify = list()
 
 with open('destinataires.csv', newline = '') as file:
     listdestinataires = csv.reader(file)
     #print('passage1',file)
     for row in listdestinataires:
         print(row) #print la ligne entiere avec les accolades
-        print(row[0], row[1]) # print chaque élément
+        #print(row[0], row[1]) # print chaque élément
+        print(row[1])
         print("----------------------")
         if row[1] == dest1 or row[1] == dest2:
-            print("gagné")
-            destinatairenotify = row[1]
+        #if row[1] == row[1] == dest2:
+            destinatairenotify.append(row[1])
+            #destinatairenotify = row[1]
+            print("gagné :", destinatairenotify)
+            print("destinatairenotify", destinatairenotify)
         else:
             print("perdu")
 
@@ -31,9 +36,11 @@ print("ceci est titi:",titi)
 #tutu = time
 date = datetime.datetime.now()
 
+COMMASPACE = ', '
+
 msg = MIMEMultipart()
 msg['From'] = 'secure.stand2017@gmail.com'
-msg['To'] = destinatairenotify
+msg['To'] = COMMASPACE.join(destinatairenotify)
 msg['Subject'] = 'Alerte sur votre stand'
 message = """Bonjour !
 le capteur de votre stand positionné sur {}
@@ -51,5 +58,5 @@ mailserver.sendmail('secure.Stand2017@gmail.com', destinatairenotify, msg.as_str
 mailserver.quit()
 
 # appelle d'une fonction dans un file externe
-# exec(open('writehistoric.py').read())
+exec(open('writehistoric.py').read())
 
