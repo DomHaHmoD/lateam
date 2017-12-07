@@ -2,8 +2,8 @@
 import time
 #creation d'une class
 class Sensor:
-	def __init__(self,mac_adress,name):
-		self.mac = mac_adress
+	def __init__(self,mac,name):
+		self.mac = mac
 		self.name = name
 		self.last_alert = time.time()
 

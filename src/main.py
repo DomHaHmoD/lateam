@@ -46,9 +46,9 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
 
         if mail_sended :
             for sensor in sensors_list:
-                if sensor in alert_list:
+                if sensor.mac in alert_list:
                     sensor.last_alert = time.time()#mise à jour de la derniere alerte
-                elif sensor in waiting_list:
+                elif sensor.mac in waiting_list:
                     sensor.last_alert = time.time()#pareil
 
                 write_histo(alert_list,waiting_list)#ecrit le nom du capteur et l'heure actuelle dans l'histo
