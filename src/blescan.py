@@ -1,6 +1,6 @@
 # TODO fonction a decouper en 2 (scan et filtre)
 
-from bluepy.btle import Scanner, DefaultDelegate
+
 
 def bluetooth_scan():
 
