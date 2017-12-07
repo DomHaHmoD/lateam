@@ -11,8 +11,11 @@ def filter(x,y):
 def send_mail(x,y,z):
     return True
 
+#import des fichiers .py
+import blescan.py
 
-
+#import des biblios
+from bluepy.btle import Scanner, DefaultDelegate
 import time
 # Déclaration des listes et variables utiles au programme
 global_list = []
@@ -21,6 +24,7 @@ sensors_list = []
 mail_sended = False #bool pour savoir si le mail est bien parti
 waiting_list = []
 destinataires_list = []
+alert_frequence = 0
 i = 0 # sert pour un while, je galère avec les for in.
 
 if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le main
@@ -30,7 +34,7 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
 
     while True: # A partir d'ici le programme tournera jusqu'a l'arret du rasp
 
-        global_list = scanner() #On recupere notre liste d'objets scannés
+        global_list = bluetooth_scan() #On recupere notre liste d'objets scannés
 
         if global_list == None: #On s'assure qu'il y a quelque chose
             time.sleep(5) # On attend 5 sec avant de relancer le scan blutooth
