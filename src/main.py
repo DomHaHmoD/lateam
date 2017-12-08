@@ -9,11 +9,15 @@ def notify(x,y,z):
 
 #import des fichiers .py
 from blescan import *
+from alert_frequence_conf import *
+from recipients_conf import *
+from sensors_conf import *
+from notify import *
 
 #import des biblios
 from bluepy.btle import Scanner, DefaultDelegate
 import time
-
+import csv
 # Déclaration des objets utiles au programme:
 
 global_list = []    #liste des appareils bluetooth scannés par le BLE
@@ -22,7 +26,7 @@ alert_list = []     #liste des capteurs détectés lors du scan (blescan.py/mac_
 mail_sended = False #bool pour savoir si le mail est bien parti
 waiting_list = []   #liste d'attente contenant les capteurs pour qui le mail n'a pas pu être envoyé
 recipients_list = get_recipients_data()  #liste des destinataires des mails d'alerte (recipients_conf.py)
-alert_frequence = 0      #fréquence d'alerte choisie par l'utilisateur RECUP DANS CSV!!!!
+alert_frequence = get_alert_frequence_data()      #fréquence d'alerte choisie par l'utilisateur RECUP DANS CSV!!!!
 
 if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le main
 

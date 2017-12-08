@@ -1,6 +1,5 @@
-import csv
 
-def alert_frequence_conf():
+def get_alert_frequence_data():
     alert_frequence = 0
     with open('alert_frequence.csv') as file: # ouverture du csv
         temporary = list(csv.reader(file))# les 3 lignes suivantes servent à recuperer un int en le sortant
@@ -9,6 +8,4 @@ def alert_frequence_conf():
             alert_frequence = int(temporary2[0])
         except ValueError:
             alert_frequence = 60
-    print(alert_frequence)
-
-alert_frequence_conf()
+    return alert_frequence
