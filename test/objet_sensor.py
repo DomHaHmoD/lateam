@@ -37,4 +37,3 @@ def list_sensors_export():
 #sensors_list[1].name = "pouet"
 #print(sensors_list[1].name)
 #print(sensors_list[0].last_alert - a)
-

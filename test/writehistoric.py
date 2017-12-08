@@ -4,8 +4,10 @@
 import datetime # import pour gérer les dates
 
 # utilitaire pour ouvrir un file destinataires
-dest = open('destinataires', 'r')
-destinataires = dest.read()
+#dest = open('destinataires', 'r')
+#destinataires = dest.read()
+with open('destinataires.csv', newline = '') as file:
+    listdestinataires = csv.reader(file)
 destinataires = destinataires.split("\n")
 d1 = ', '.join(destinataires)
 
