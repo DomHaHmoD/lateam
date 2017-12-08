@@ -12,7 +12,7 @@ with open('destinataires.csv', newline = '') as file:
         list_destinataires.append(element[1])
 
 print(list_destinataires)
-os.system("rm /home/maxime/Documents/projet_1/secure_stand/lateam/test/destinataires.csv")
+
 #return list_destinataires
 
 #def load_conf_capteurs
