@@ -1,3 +1,5 @@
+from bluepy.btle import Scanner, DefaultDelegate
+
 def bluetooth_scan():
 
     class ScanDelegate(DefaultDelegate):
@@ -32,6 +34,7 @@ def mac_filter(global_list,sensors_mac_list): #compare les MAC des appareils blu
     return alert_list_return
 
 #debug test
-#sensors_mac_list = ["0b:11:fa:07:e4:c2","18:ed:a2:8f:5c:b2","1e:a6:60:c5:dc:49","54:60:09:db:35:25","0f:33:30:52:dc:19"]
-#alert_list = mac_filter(bluetooth_scan(),sensors_mac_list)
-#print(alert_list)"""
+sensors_mac_list = ["3a:56:d7:b3:7f:d1", "f2:bb:dc:d3:16:85", "09:00:c5:34:28:66", "0b:11:fa:07:e4:c2","18:ed:a2:8f:5c:b2","1e:a6:60:c5:dc:49","54:60:09:db:35:25","0f:33:30:52:dc:19"]
+alert_list = mac_filter(bluetooth_scan(),sensors_mac_list)
+print(bluetooth_scan())
+print(alert_list)

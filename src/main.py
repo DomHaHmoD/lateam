@@ -4,7 +4,7 @@
 def test_conf():
     return True
 
-def send_mail(x,y,z):
+def notify(x,y,z):
     return True
 
 #import des fichiers .py
@@ -41,12 +41,12 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
         for sensors_object in sensors_list
             sensors_mac_list.append(sensors_object.mac)
 
-        alert_list = mac_filter(global_list,sensors_mac_list) # on crée notre liste d'alerte
+        alert_list = mac_filter(global_list, sensors_mac_list) # on crée notre liste d'alerte
         if alert_list == None: #si ya rien on rescanne immediatement
             continue
-        mail_sended = send_mail(alert_list,recipients_list,waiting_list) #TODO doit send 1 seul mail pour plusieurs capteurs
+        mail_sended = notify(alert_list,recipients_list,waiting_list) #TODO doit send 1 seul mail pour plusieurs capteurs
 
-        if mail_sended :
+        if mail_sended:
             for sensor in sensors_list:
                 if sensor in alert_list:
                     sensor.last_alert = time.time()#mise à jour de la derniere alerte
