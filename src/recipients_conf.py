@@ -6,7 +6,7 @@ def get_recipients_data():
         recipients_raw_list = list(csv.reader(file, delimiter=','))  #création d'une liste de 2 listes
 
     recipients_list = recipients_raw_list[1] #on recupere la liste de mail
-    recipients_list=recipient_list[1:]       #on tronque la premiere colonne
+    recipients_list = recipients_list[1:]       #on tronque la premiere colonne
 
     return recipients_list
 
