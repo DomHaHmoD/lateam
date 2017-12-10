@@ -1,4 +1,4 @@
-from bluepy.btle import Scanner, DefaultDelegate
+"""from bluepy.btle import Scanner, DefaultDelegate""" #debug test
 
 def bluetooth_scan():
 
@@ -22,19 +22,36 @@ def bluetooth_scan():
     return global_list
 
 
-def mac_filter(global_list,sensors_mac_list): #compare les MAC des appareils bluetooth scannés avec les MAC des capteurs
+def mac_filter(global_list,sensors_list): #compare les MAC des appareils bluetooth scannés avec les MAC des capteurs
 
     alert_list_return = []                   #purge de la liste d'alerte en entrée de fonction
     for scanned_mac in global_list:             #compare chaque élement de global_list
-        for sensor_mac in sensors_mac_list:         #à chaque élément de sensors_mac_list
+        for sensor in sensors_list:
+            sensor_mac = sensor.mac
             is_a_sensor = (scanned_mac == sensor_mac)
             if is_a_sensor:
-                alert_list_return.append(scanned_mac)
+                alert_list_return.append(sensor)
 
     return alert_list_return
 
 #debug test
-sensors_mac_list = ["3a:56:d7:b3:7f:d1", "f2:bb:dc:d3:16:85", "09:00:c5:34:28:66", "0b:11:fa:07:e4:c2","18:ed:a2:8f:5c:b2","1e:a6:60:c5:dc:49","54:60:09:db:35:25","0f:33:30:52:dc:19"]
-alert_list = mac_filter(bluetooth_scan(),sensors_mac_list)
-print(bluetooth_scan())
-print(alert_list)
+"""class Sensor:
+
+	def __init__(self,mac,name):
+		self.mac = mac
+		self.name = name
+		self.last_alert = 0
+
+sensors_list=[]
+sensors_list.append(Sensor("3b:f5:5e:c4:3e:9c","ferrari"))
+sensors_list.append(Sensor("0b:9e:09:d6:14:d4","trompette"))
+sensors_list.append(Sensor("2e:66:aa:04:9c:ec","paté"))
+sensors_list.append(Sensor("3b:87:f9:93:c9:f5","chaise"))
+sensors_list.append(Sensor("07:39:8a:d0:7b:36","truite"))
+
+global_list = bluetooth_scan()
+
+alert_list = mac_filter(global_list, sensors_list)
+
+for alert in alert_list:
+    print(alert.mac, alert.name)"""
