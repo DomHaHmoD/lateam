@@ -14,7 +14,8 @@ from sensors_conf import *
 from notify import *
 from update_sensors_list import *
 from test_conf import *
-from notify.py import *
+from notify import *
+from whritehistoric import *
 #import des biblios
 from bluepy.btle import Scanner, DefaultDelegate
 import time
@@ -58,7 +59,7 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
         if mail_sended:
             sensors_list = update_sensors_list(sensors_list,alert_list)#met a jour le item.last_alert
 
-                #write_histo(alert_list,waiting_list)#ecrit le nom du capteur et l'heure actuelle dans l'histo
+            writehisto(recipients_list,alert_list,waiting_list)#ecrit le nom du capteur et l'heure actuelle dans l'histo
 
             for sensor in waiting_list: #le mail est parti avec la waiting list, donc on peut la del
                 del sensor
