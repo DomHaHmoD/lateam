@@ -1,0 +1,12 @@
+objet,destinataire,date
+"[['ferrari', 'tabouret'], ['dominique.hathi@gmail.com'], datetime.datetime(2017, 12, 9, 11, 47, 48, 55052)]"
+"[['ferrari', 'tabouret'], ['dominique.hathi@gmail.com'], datetime.datetime(2017, 12, 9, 11, 50, 3, 479071)]"
+"[['ferrari', 'tabouret'], ['dominique.hathi@gmail.com'], '2017-12-09 13:22:23.983806']"
+"['ferrari', 'tabouret']",['dominique.hathi@gmail.com'],2017-12-09 13:48:03.953014
+"['ferrari', 'tabouret']",['dominique.hathi@gmail.com'],2017-12-09 13:52:23.752067
+"['ferrari', 'tabouret']",['dominique.hathi@gmail.com'],2017-12-09 13:54:43.192538
+"['ferrari', 'tabouret']",['dominique.hathi@gmail.com'],2017-12-09 16:28:28.069482
+"['ferrari', 'tabouret']",['dominique.hathi@gmail.com'],2017-12-09 16:29:22.994645
+"['ferrari', 'tabouret']","['dominique.hathi@gmail.com', 'maxime.girma@hotmail.fr', 'kev_wfc@hotmail.fr', 'raoultson@yahoo.fr']",2017-12-09 16:30:52.716254
+"['ferrari', 'tabouret']","['dominique.hathi@gmail.com', 'maxime.girma@hotmail.fr', 'kev_wfc@hotmail.fr', 'raoultson@yahoo.fr']",2017-12-09 16:32:46.500136
+"['ferrari', 'tabouret']","['dominique.hathi@gmail.com', 'maxime.girma@hotmail.fr', 'kev_wfc@hotmail.fr', 'raoultson@yahoo.fr']",2017-12-09 16:33:12.156055
