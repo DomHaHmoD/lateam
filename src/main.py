@@ -1,8 +1,7 @@
 #Les 4 fonctions qui suivent returnent True ou une liste permettant au main de continuer
 #Elles n'ont aucune fonction réelle
 
-def test_conf():
-    return True
+
 
 def notify(x,y,z):
     return True
@@ -13,11 +12,17 @@ from alert_frequence_conf import *
 from recipients_conf import *
 from sensors_conf import *
 from notify import *
-
+from update_sensors_list import *
+from test_conf import *
+from notify.py import *
 #import des biblios
 from bluepy.btle import Scanner, DefaultDelegate
 import time
 import csv
+import os
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 # Déclaration des objets utiles au programme:
 
 global_list = []    #liste des appareils bluetooth scannés par le BLE
@@ -37,34 +42,30 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
 
         global_list = bluetooth_scan() #On recupere notre liste d'objets scannés
 
-        if global_list == None: #On s'assure qu'il y a quelque chose
+        if len(global_list) == 0: #On s'assure qu'il y a quelque chose
             time.sleep(5) # On attend 5 sec avant de relancer le scan blutooth
             continue
 
         sensors_mac_list = []        # on récupère la liste des mac des capteurs déployés dans la liste d'objets
-        for sensors_object in sensors_list
+        for sensors_object in sensors_list:
             sensors_mac_list.append(sensors_object.mac)
 
-        alert_list = mac_filter(global_list, sensors_mac_list) # on crée notre liste d'alerte
-        if alert_list == None: #si ya rien on rescanne immediatement
+        alert_list = mac_filter(global_list, sensors_list) # on crée notre liste d'alerte
+        if len(alert_list) == 0: #si ya rien on rescanne immediatement
             continue
         mail_sended = notify(alert_list,recipients_list,waiting_list) #TODO doit send 1 seul mail pour plusieurs capteurs
 
         if mail_sended:
-            for sensor in sensors_list:
-                if sensor in alert_list:
-                    sensor.last_alert = time.time()#mise à jour de la derniere alerte
-                if sensor in waiting_list:
-                    sensor.last_alert = time.time()#pareil
+            sensors_list = update_sensors_list(sensors_list,alert_list)#met a jour le item.last_alert
 
-                write_histo(alert_list,waiting_list)#ecrit le nom du capteur et l'heure actuelle dans l'histo
+                #write_histo(alert_list,waiting_list)#ecrit le nom du capteur et l'heure actuelle dans l'histo
 
             for sensor in waiting_list: #le mail est parti avec la waiting list, donc on peut la del
                 del sensor
 
         else:                           #si le mail a échoué
-            for mac_alert in alert_list
-                waiting_list.append(mac_alert)#ajout des alertes a la waiting list pour le prochain tour
+            for alert in alert_list:
+                waiting_list.append(alert)#ajout des alertes a la waiting list pour le prochain tour
 
 
 #else:
