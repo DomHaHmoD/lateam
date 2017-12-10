@@ -2,18 +2,24 @@
 #-*- coding: utf-8 -*-
 
 import datetime # import pour gérer les dates
+import csv
 
-# utilitaire pour ouvrir un file destinataires
-#dest = open('destinataires', 'r')
-#destinataires = dest.read()
-with open('destinataires.csv', newline = '') as file:
-    listdestinataires = csv.reader(file)
-destinataires = destinataires.split("\n")
-d1 = ', '.join(destinataires)
+recipients_list = ["dominique.hathi@gmail.com","maxime.girma@hotmail.fr","kev_wfc@hotmail.fr","raoultson@yahoo.fr"]
+#recipients_list = ["dominique.hathi@gmail.com"]
+alerte_list = ["ferrari","tabouret"]
 
-# utilitaire pour écrire dans un file historique
-histo = open('historique', 'a')
-# utilitaire de gestion des dates
-date = datetime.datetime.now()
-histo.write("\nUn email a été envoyé à:\n" + d1 + str(date) + "\n-------------------") # le \n pour un saut de ligne
-histo.close()
+date = str(datetime.datetime.now())
+
+def writehisto(recipients_list, alerte_list):
+
+    #definiton de ce qu'il y a à écrire
+    #data = [alerte_list, recipients_list, date]
+    data = alerte_list,recipients_list,date
+    print(data)
+
+    # utilitaire pour écrire dans un file historique
+    with open('historique.csv','a') as csvfile:
+        newFileWriter = csv.writer(csvfile)
+        newFileWriter.writerow(data)
+
+writehisto(recipients_list,alerte_list)
