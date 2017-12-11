@@ -51,6 +51,7 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
         mail_sended = notify(recipients_list, alert_list,alert_frequence) #TODO doit send 1 seul mail pour plusieurs capteurs
 
         if mail_sended:
+
             sensors_list = update_sensors_list(sensors_list,alert_list)#met a jour le item.last_alert
 
             write_histo(recipients_list,alert_list)#ecrit le nom du capteur et l'heure actuelle dans l'histo
