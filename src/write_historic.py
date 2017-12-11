@@ -14,7 +14,11 @@ def write_histo(recipients_list, alert_list):
 
     #definiton de ce qu'il y a à écrire
     #data = [alert_list, recipients_list, date]
-    data = [alert_list,recipients_list,date]
+    alert_list_name = []
+    for sensor in alert_list:
+        alert_list_name.append(sensor.name)
+
+    data = [alert_list_name,recipients_list,date]
     print(data)
 
     # utilitaire pour écrire dans un file historique
