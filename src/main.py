@@ -6,7 +6,10 @@
 
 
 #import des fichiers .py
+#on commence par importer les fichiers de configuration de la clé usb
 from auto_mount import *
+auto_mount()
+
 from blescan import *
 from alert_frequence_conf import *
 from recipients_conf import *
@@ -25,7 +28,7 @@ import os
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-auto_mount()
+
 if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le main
 
     # Déclaration des objets utiles au programme:
@@ -52,7 +55,7 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
         if len(alert_list) == 0: #si ya rien on rescanne immediatement
             continue
 
-        final_alert_list = time_filter(alert_list) #filtre alert_list en fonction de la derniere alerte
+        final_alert_list = time_filter(alert_list) #filtre la alert_list en fonction de la derniere alerte
 
         if len(final_alert_list) == 0: #si ya rien on rescanne immediatement
             continue
@@ -63,7 +66,7 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
 
             sensors_list = update_sensors_list(sensors_list, final_alert_list)#met a jour le item.last_alert
 
-            write_histo(recipients_list, final_alert_list)#ecrit le nom du capteur et l'heure actuelle dans l'histo
+            write_histo(recipients_list, final_alert_list)# ecrit le nom du capteur et l'heure actuelle dans l'histo
 
             for sensor in waiting_list: #le mail est parti avec la waiting list, donc on peut la del
                 del sensor
