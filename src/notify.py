@@ -12,11 +12,12 @@ from email.mime.text import MIMEText
 #alerte_list = ['ferrari', 'tabouret']
 #alerte_list = ['ferrari']
 
-def notify(recipients_list, alert_list):
+def notify(recipients_list, alert_list,alert_frequence):
 
     name_list = []
     for alert in alert_list:
-        name_list.append(alert.name)
+        if alert.last_alert < alert_frequence :
+            name_list.append(alert.name)
 
     COMMASPACE = ','
 
@@ -54,3 +55,5 @@ def notify(recipients_list, alert_list):
     mailserver.sendmail('secure.Stand2017@gmail.com', recipients_list, msg.as_string())
     print("mail envoyé")
     mailserver.quit()
+
+    return True

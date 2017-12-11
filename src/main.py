@@ -48,12 +48,12 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
         alert_list = mac_filter(global_list, sensors_list) # on crée notre liste d'alerte
         if len(alert_list) == 0: #si ya rien on rescanne immediatement
             continue
-        mail_sended = notify(recipients_list, alert_list) #TODO doit send 1 seul mail pour plusieurs capteurs
+        mail_sended = notify(recipients_list, alert_list,alert_frequence) #TODO doit send 1 seul mail pour plusieurs capteurs
 
         if mail_sended:
             sensors_list = update_sensors_list(sensors_list,alert_list)#met a jour le item.last_alert
 
-            write_histo(recipients_list,alert_list,waiting_list)#ecrit le nom du capteur et l'heure actuelle dans l'histo
+            write_histo(recipients_list,alert_list)#ecrit le nom du capteur et l'heure actuelle dans l'histo
 
             for sensor in waiting_list: #le mail est parti avec la waiting list, donc on peut la del
                 del sensor

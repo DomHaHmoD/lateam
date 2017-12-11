@@ -10,11 +10,11 @@ alert_list = ["ferrari","tabouret"]"""
 
 date = str(datetime.datetime.now())
 
-def write_histo(recipients_list, alert_list,waiting_list):
+def write_histo(recipients_list, alert_list):
 
     #definiton de ce qu'il y a à écrire
     #data = [alert_list, recipients_list, date]
-    data = [alert_list,waiting_list,recipients_list,date]
+    data = [alert_list,recipients_list,date]
     print(data)
 
     # utilitaire pour écrire dans un file historique
