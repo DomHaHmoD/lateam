@@ -3,16 +3,19 @@ def test_conf_file():
     try:
         with open("recipients_conf.csv","r") as file:
             a = 0
+            print("there is a recipient_conf.csv")
     except FileNotFoundError:
         return False
     try:
         with open("alert_frequence.csv","r") as file:
             a = 0
+            print("there is a alert_frequent_conf.csv")
     except FileNotFoundError:
         return False
     try:
         with open("sensors_conf.csv","r") as file:
             a = 0
+            print("there is a sensors_conf.csv")
     except FileNotFoundError:
         return False
 

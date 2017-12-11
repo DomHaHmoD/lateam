@@ -3,8 +3,6 @@
 
 
 
-def notify(x,y,z):
-    return True
 
 #import des fichiers .py
 from blescan import *
