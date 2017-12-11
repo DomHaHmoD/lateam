@@ -10,6 +10,6 @@ def update_sensors_list(sensors_list,final_alert_list):
                 item.last_alert = time.time()
                 print  ("MISE A JOUR !",item.last_alert)
 
-                i += 1
+            i += 1
 
     return sensors_list

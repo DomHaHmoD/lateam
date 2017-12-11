@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.5
 #Les 4 fonctions qui suivent returnent True ou une liste permettant au main de continuer
 #Elles n'ont aucune fonction réelle
 

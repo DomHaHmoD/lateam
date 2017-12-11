@@ -8,9 +8,11 @@ import csv
 #recipients_list = ["dominique.hathi@gmail.com"]
 alert_list = ["ferrari","tabouret"]"""
 
-date = str(datetime.datetime.now())
+
 
 def write_histo(recipients_list, final_alert_list):
+
+    date = str(datetime.datetime.now())
 
     #definiton de ce qu'il y a à écrire
     #data = [final_alert_list, recipients_list, date]
