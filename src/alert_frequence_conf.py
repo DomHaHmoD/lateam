@@ -8,4 +8,5 @@ def get_alert_frequence_data():
             alert_frequence = int(temporary2[0])
         except ValueError:
             alert_frequence = 60
+    print(alert_frequence,"est la frequence d'alerte")#print de test
     return alert_frequence
