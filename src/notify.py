@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
-
+import time
 import datetime # import pour gérer les dates
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -16,7 +16,7 @@ def notify(recipients_list, alert_list,alert_frequence):
 
     name_list = []
     for alert in alert_list:
-        if alert.last_alert < alert_frequence :
+        if (time.time() - alert.last_alert) > alert_frequence :
             name_list.append(alert.name)
 
     COMMASPACE = ','
