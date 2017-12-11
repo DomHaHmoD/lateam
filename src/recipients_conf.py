@@ -2,7 +2,7 @@ import csv
 
 def get_recipients_data():
 
-     with open('test.csv','a') as csvfile:
+    with open('test.csv','a') as csvfile:
         newFileWriter = csv.writer(csvfile)
         newFileWriter.writerow('toto')
         print('yess write test')
