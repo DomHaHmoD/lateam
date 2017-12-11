@@ -13,7 +13,7 @@ from notify import *
 from update_sensors_list import *
 from test_conf import *
 from notify import *
-from whritehistoric import *
+from write_historic import *
 #import des biblios
 from bluepy.btle import Scanner, DefaultDelegate
 import time
@@ -38,26 +38,22 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
 #    send_statut() # éventuellement pour alerter que le systeme à bien demarré
 
     while True: # A partir d'ici le programme tournera jusqu'a l'arret du rasp
-
+        print("on est dans la boucle")
         global_list = bluetooth_scan() #On recupere notre liste d'objets scannés
 
         if len(global_list) == 0: #On s'assure qu'il y a quelque chose
             time.sleep(5) # On attend 5 sec avant de relancer le scan blutooth
             continue
 
-        sensors_mac_list = []        # on récupère la liste des mac des capteurs déployés dans la liste d'objets
-        for sensors_object in sensors_list:
-            sensors_mac_list.append(sensors_object.mac)
-
         alert_list = mac_filter(global_list, sensors_list) # on crée notre liste d'alerte
         if len(alert_list) == 0: #si ya rien on rescanne immediatement
             continue
-        mail_sended = notify(alert_list,recipients_list,waiting_list) #TODO doit send 1 seul mail pour plusieurs capteurs
+        mail_sended = notify(recipients_list, alert_list) #TODO doit send 1 seul mail pour plusieurs capteurs
 
         if mail_sended:
             sensors_list = update_sensors_list(sensors_list,alert_list)#met a jour le item.last_alert
 
-            writehisto(recipients_list,alert_list,waiting_list)#ecrit le nom du capteur et l'heure actuelle dans l'histo
+            write_histo(recipients_list,alert_list,waiting_list)#ecrit le nom du capteur et l'heure actuelle dans l'histo
 
             for sensor in waiting_list: #le mail est parti avec la waiting list, donc on peut la del
                 del sensor

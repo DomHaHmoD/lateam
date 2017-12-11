@@ -41,7 +41,7 @@ def notify(recipients_list, alert_list):
     le capteur de votre stand positionné sur le(la) {}
     s'est déclanché
     à {}
-    
+
     Cordialement,
     Le systeme SecureStand
     """.format(objetquibouge, date)
@@ -54,6 +54,3 @@ def notify(recipients_list, alert_list):
     mailserver.sendmail('secure.Stand2017@gmail.com', recipients_list, msg.as_string())
     print("mail envoyé")
     mailserver.quit()
-
-notify(recipients_list, alert_list)
-

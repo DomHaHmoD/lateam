@@ -49,8 +49,7 @@ def test_conf():
     print(is_conf_file_here,"fichier")
     print(is_wifi_connected,"internet")
 
-    #if is_wifi_connected and is_conf_file_here:
-        #return True
-    #else:
-        #return False
-test_conf()
+    if is_wifi_connected and is_conf_file_here:
+        return True
+    else:
+        return False

@@ -1,6 +1,7 @@
-"""from bluepy.btle import Scanner, DefaultDelegate""" #debug test
+from bluepy.btle import Scanner, DefaultDelegate #debug test
 
 def bluetooth_scan():
+    print("coucou je rentre dedans")
 
     class ScanDelegate(DefaultDelegate):
         def __init__(self):

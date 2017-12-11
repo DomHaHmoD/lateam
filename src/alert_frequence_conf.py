@@ -1,4 +1,4 @@
-
+import csv
 def get_alert_frequence_data():
     alert_frequence = 0
 
