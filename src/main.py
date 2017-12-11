@@ -54,6 +54,9 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
 
         final_alert_list = time_filter(alert_list) #filtre alert_list en fonction de la derniere alerte
 
+        if len(final_alert_list) == 0: #si ya rien on rescanne immediatement
+            continue
+
         mail_sended = notify(recipients_list, final_alert_list)
 
         if mail_sended:
