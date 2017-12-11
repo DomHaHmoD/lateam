@@ -10,15 +10,15 @@ alert_list = ["ferrari","tabouret"]"""
 
 date = str(datetime.datetime.now())
 
-def write_histo(recipients_list, alert_list):
+def write_histo(recipients_list, final_alert_list):
 
     #definiton de ce qu'il y a à écrire
     #data = [alert_list, recipients_list, date]
-    alert_list_name = []
+    name_list = []
     for sensor in alert_list:
-        alert_list_name.append(sensor.name)
+        name_list.append(sensor.name)
 
-    data = [alert_list_name,recipients_list,date]
+    data = [name_list,recipients_list,date]
     print(data)
 
     # utilitaire pour écrire dans un file historique
@@ -26,3 +26,5 @@ def write_histo(recipients_list, alert_list):
         newFileWriter = csv.writer(csvfile)
         newFileWriter.writerow(data)
         print('yess write')
+
+    return

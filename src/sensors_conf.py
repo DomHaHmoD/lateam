@@ -33,7 +33,6 @@ def get_sensors_data():
 
     return sensors_list_return
 
-sensors_list = get_sensors_data()
 
 #TESTS
 print(sensors_list[0].mac, sensors_list[1].mac, sensors_list[2].mac, sensors_list[3].mac, sensors_list[4].mac)

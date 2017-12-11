@@ -45,22 +45,26 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
             time.sleep(5) # On attend 5 sec avant de relancer le scan blutooth
             continue
 
-        alert_list = mac_filter(global_list, sensors_list) # on crée notre liste d'alerte
+        alert_list = mac_filter(global_list, sensors_list) # on crée notre liste d'alerte en filtrant une premiere fois
+
         if len(alert_list) == 0: #si ya rien on rescanne immediatement
             continue
-        mail_sended = notify(recipients_list, alert_list,alert_frequence) #TODO doit send 1 seul mail pour plusieurs capteurs
+
+        final_alert_list = time_filter(alert_list) #filtre en fonction de la derniere alerte
+
+        mail_sended = notify(recipients_list, final_alert_list, alert_frequence)
 
         if mail_sended:
 
-            sensors_list = update_sensors_list(sensors_list,alert_list)#met a jour le item.last_alert
+            sensors_list = update_sensors_list(sensors_list, final_alert_list)#met a jour le item.last_alert
 
-            write_histo(recipients_list,alert_list)#ecrit le nom du capteur et l'heure actuelle dans l'histo
+            write_histo(recipients_list, final_alert_list)#ecrit le nom du capteur et l'heure actuelle dans l'histo
 
             for sensor in waiting_list: #le mail est parti avec la waiting list, donc on peut la del
                 del sensor
 
         else:                           #si le mail a échoué
-            for alert in alert_list:
+            for alert in final_alert_list:
                 waiting_list.append(alert)#ajout des alertes a la waiting list pour le prochain tour
 
 

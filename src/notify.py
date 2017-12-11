@@ -12,12 +12,12 @@ from email.mime.text import MIMEText
 #alerte_list = ['ferrari', 'tabouret']
 #alerte_list = ['ferrari']
 
-def notify(recipients_list, alert_list,alert_frequence):
+def notify(recipients_list, final_alert_list):
 
     name_list = []
-    for alert in alert_list:
-        if (time.time() - alert.last_alert) > alert_frequence :
-            name_list.append(alert.name)
+    
+    for item in final_alert_list:  # on crée une liste de noms à partir de chaque objet
+        name_list.append(item.name)
 
     if len(name_list) > 0:
 
