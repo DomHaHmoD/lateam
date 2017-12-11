@@ -13,10 +13,12 @@ date = str(datetime.datetime.now())
 def write_histo(recipients_list, final_alert_list):
 
     #definiton de ce qu'il y a à écrire
-    #data = [alert_list, recipients_list, date]
+    #data = [final_alert_list, recipients_list, date]
     name_list = []
-    for sensor in alert_list:
-        name_list.append(sensor.name)
+    for item in final_alert_list:
+        name_list.append(item.name)
+
+
 
     data = [name_list,recipients_list,date]
     print(data)
