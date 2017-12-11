@@ -19,41 +19,34 @@ def notify(recipients_list, alert_list,alert_frequence):
         if (time.time() - alert.last_alert) > alert_frequence :
             name_list.append(alert.name)
 
-    COMMASPACE = ','
+    if len(name_list) > 0:
 
-    #objet qui bouge
-    objetquibouge = list(name_list)
-    """if len(objetquibouge) > 1:
-        print("ceci est objet 1:",objetquibouge)
-        ', '.join(objetquibouge)
-        print("ceci est objet:",objetquibouge)
-    else:
-        ', '.join(objetquibouge)"""
+        #date
+        date = datetime.datetime.now()
 
-    #date
-    date = datetime.datetime.now()
+        #gestion du mail
+        msg = MIMEMultipart()
+        msg['From'] = 'secure.stand2017@gmail.com'
+        msg['To'] = ','.join(recipients_list)
+        msg['Subject'] = 'Alerte sur votre stand'
+        message = """Bonjour,
+        le (les) capteur(s) de votre stand positionné(s) sur le(la) {}
+        s'est déclenché
+        à {}
 
-    #gestion du mail
-    msg = MIMEMultipart()
-    msg['From'] = 'secure.stand2017@gmail.com'
-    msg['To'] = COMMASPACE.join(recipients_list)
-    msg['Subject'] = 'Alerte sur votre stand'
-    message = """Bonjour,
-    le capteur de votre stand positionné sur le(la) {}
-    s'est déclanché
-    à {}
+        Cordialement,
+        Le systeme SecureStand
+        """.format(name_list, date)
+        msg.attach(MIMEText(message))
+        mailserver = smtplib.SMTP('smtp.gmail.com', 587)
+        mailserver.ehlo()
+        mailserver.starttls()
+        mailserver.ehlo()
+        mailserver.login('secure.Stand2017@gmail.com', 'pythonlinux')
+        mailserver.sendmail('secure.Stand2017@gmail.com', recipients_list, msg.as_string())
+        print("mail envoyé")
+        mailserver.quit()
 
-    Cordialement,
-    Le systeme SecureStand
-    """.format(objetquibouge, date)
-    msg.attach(MIMEText(message))
-    mailserver = smtplib.SMTP('smtp.gmail.com', 587)
-    mailserver.ehlo()
-    mailserver.starttls()
-    mailserver.ehlo()
-    mailserver.login('secure.Stand2017@gmail.com', 'pythonlinux')
-    mailserver.sendmail('secure.Stand2017@gmail.com', recipients_list, msg.as_string())
-    print("mail envoyé")
-    mailserver.quit()
+        return True
 
     return True
