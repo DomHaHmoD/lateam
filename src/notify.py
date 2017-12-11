@@ -55,9 +55,5 @@ def notify(recipients_list, alert_list):
     print("mail envoyé")
     mailserver.quit()
 
-    # appelle d'une fonction dans un file externe
-    #exec(open('writehistoric.py').read())
-
-
 notify(recipients_list, alert_list)
 

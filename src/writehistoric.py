@@ -21,5 +21,5 @@ def writehisto(recipients_list, alert_list,waiting_list):
     with open('historique.csv','a') as csvfile:
         newFileWriter = csv.writer(csvfile)
         newFileWriter.writerow(data)
-
+        print('yess write')
 writehisto(recipients_list,alert_list)
