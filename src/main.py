@@ -6,6 +6,7 @@
 
 
 #import des fichiers .py
+from auto_mount import *
 from blescan import *
 from alert_frequence_conf import *
 from recipients_conf import *
@@ -24,7 +25,7 @@ import os
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
+auto_mount()
 if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le main
 
     # Déclaration des objets utiles au programme:

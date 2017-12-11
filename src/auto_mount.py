@@ -1,3 +1,6 @@
+import os
+from time import sleep
+
 def auto_mount():
 
 '''La fonction essaie de monter une clé usb durant 1 minute, ou jusqu'a qu'elle y arrive. Puis elle copie
@@ -6,8 +9,7 @@ la copie supprime les anciens fichiers si ils existent.
 si il n'y a pas de fichiers ou pas de clé usb, les fichiers de conf précédents sont utilisés.
 Si ils ne sont pas présents le programme s'arretera. Puis se relancera.'''
 
-    import os
-    from time import sleep
+
     error_mount = 8192 # erreur renvoyée si il n'y a pas de clé usb
     compteur = 0
     while (error_mount == 8192) and (compteur < 10): #on essaye de monter une clé usb pendant une minute
@@ -19,9 +21,9 @@ Si ils ne sont pas présents le programme s'arretera. Puis se relancera.'''
 
     #copie des fichiers de conf
 
-    os.system("cp -f /mnt/usbStick/destinataires.csv /home/pi/test/recipients_conf.csv")
-    os.system("cp -f /mnt/usbStick/liste_capteurs.csv /home/pi/test/sensors_conf.csv")
-    os.system("cp -f /mnt/usbStick/frequence_alerte.csv /home/pi/test/alert_frequence.csv")
+    os.system("cp -f /mnt/usbStick/destinataires.csv /home/pi/src/recipients_conf.csv")
+    os.system("cp -f /mnt/usbStick/liste_capteurs.csv /home/pi/src/sensors_conf.csv")
+    os.system("cp -f /mnt/usbStick/frequence_alerte.csv /home/pi/src/alert_frequence.csv")
     sleep(1)
 
 
