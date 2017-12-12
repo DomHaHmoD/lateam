@@ -7,10 +7,10 @@
 
 #import des fichiers .py
 #on commence par importer les fichiers de configuration de la clé usb
-import os
+
 from auto_mount import *
 auto_mount()
-os.chdir("/home/pi/src")
+
 from blescan import *
 from alert_frequence_conf import *
 from recipients_conf import *
