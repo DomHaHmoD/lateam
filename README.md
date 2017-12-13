@@ -1,8 +1,8 @@
-# Contexte
+# Context
 
 Nous sommes une equipe projet, en formation de dev au Cesi.
 
-# Projet Securetand
+# Projet SecureStand
 
 Dans le cadre de notre stage, nous avons réalisé un projet client.
 Nous l'appelons SecureStand
