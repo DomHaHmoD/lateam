@@ -7,15 +7,15 @@
 
 #import des fichiers .py
 #on commence par importer les fichiers de configuration de la clé usb
-import os
+
 from auto_mount import *
 auto_mount()
-os.chdir("/home/pi/src")
+
 from blescan import *
 from alert_frequence_conf import *
 from recipients_conf import *
 from sensors_conf import *
-from time_filter import *
+from filters import *
 from notify import *
 from update_sensors_list import *
 from test_conf import *
@@ -56,7 +56,7 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
         if len(alert_list) == 0: #si ya rien on rescanne immediatement
             continue
 
-        final_alert_list = time_filter(alert_list) #filtre la alert_list en fonction de la derniere alerte
+        final_alert_list = time_filter(alert_list,alert_frequence) #filtre la alert_list en fonction de la derniere alerte
 
         if len(final_alert_list) == 0: #si ya rien on rescanne immediatement
             continue

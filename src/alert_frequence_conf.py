@@ -1,3 +1,15 @@
+'''
+MaximeGirma 13/12/2017 -- 11H51 -- Version ?
+alert_frequence_conf.py contient la fonction get_alert_frequence_data()
+Cette fonction ouvre le fichier de configuration nommé "alert_frequence.csv" et en sctocke le contenu
+Ce contenu servira à définir le temps minimal à respecter entre deux alertes.
+Si le fichier de configuration est vide ou contient des élements invalide
+une valeur par defaut sera utilisée(60)
+
+Cette valeur est ensuite renvoyée à la fonction main.
+'''
+
+
 import csv
 def get_alert_frequence_data():
     alert_frequence = 0
@@ -12,8 +24,12 @@ def get_alert_frequence_data():
         return alert_frequence
 
     try:
-        alert_frequence = int(temporary2[0])
+        alert_frequence = int(temporary2[0]) #On verifie que la valeur est un entier
     except ValueError:
-        alert_frequence = 60
+        alert_frequence = 60 #assignation valeur par défaut
+
+    if alert_frequence < 0: # on verifie que l'entier est positif
+        alert_frequence = 60;#assignation valeur par defaut
+
     print(alert_frequence,"est la frequence d'alerte")#print de test
     return alert_frequence
