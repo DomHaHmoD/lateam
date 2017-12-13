@@ -1,3 +1,5 @@
+#necessité de rebooter pour charger la nouvelle config.
+
 import csv
 
 def get_conf_wifi():
