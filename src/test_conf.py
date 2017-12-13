@@ -1,4 +1,5 @@
 import os
+
 def test_conf_file():
     try:
         with open("recipients_conf.csv","r") as file:

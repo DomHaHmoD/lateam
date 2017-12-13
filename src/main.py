@@ -15,7 +15,7 @@ from blescan import *
 from alert_frequence_conf import *
 from recipients_conf import *
 from sensors_conf import *
-from time_filter import *
+from filters import *
 from notify import *
 from update_sensors_list import *
 from test_conf import *

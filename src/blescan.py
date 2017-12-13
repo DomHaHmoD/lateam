@@ -1,20 +1,13 @@
-from bluepy.btle import Scanner, DefaultDelegate #debug test
+from bluepy.btle import Scanner
 
 def bluetooth_scan():
-    print("coucou je rentre dedans")
+    print("coucou je rentre dedans") #debug test
 
-    class ScanDelegate(DefaultDelegate):
-        def __init__(self):
-            DefaultDelegate.__init__(self)
 
-        def handleDiscovery(self, dev, isNewDev, isNewData):
-            if isNewDev:
-                print ("Discovered device", dev.addr)
-            elif isNewData:
-                print ("Received new data from", dev.addr)
+    devices = Scanner().scan(10.0)
+    for dev in devices:
+        print(dev.addr)
 
-    scanner = Scanner().withDelegate(ScanDelegate())
-    devices = scanner.scan(10.0)
     global_list = []
     #injecte les adresse Mac de tous les appareils dans une global_list
     for dev in devices:
@@ -22,8 +15,9 @@ def bluetooth_scan():
 
     return global_list
 
+print(bluetooth_scan())
 
-def mac_filter(global_list,sensors_list): #compare les MAC des appareils bluetooth scannés avec les MAC des capteurs
+"""def mac_filter(global_list,sensors_list): #compare les MAC des appareils bluetooth scannés avec les MAC des capteurs
 
     alert_list_return = []                   #purge de la liste d'alerte en entrée de fonction
     for scanned_mac in global_list:             #compare chaque élement de global_list
@@ -36,7 +30,7 @@ def mac_filter(global_list,sensors_list): #compare les MAC des appareils bluetoo
     return alert_list_return
 
 #debug test
-"""class Sensor:
+class Sensor:
 
 	def __init__(self,mac,name):
 		self.mac = mac
