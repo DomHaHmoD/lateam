@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
+#
+#
+#
+#
+#
 
 import time
 import datetime # import pour gérer les dates
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
-#recipients_list = ["dominique.hathi@gmail.com","maxime.girma@hotmail.fr","kev_wfc@hotmail.fr","raoultson@yahoo.fr"]
-#recipients_list = ["dominique.hathi@gmail.com"]
-#alerte_list = ['ferrari', 'tabouret']
-#alerte_list = ['ferrari']
 
 def notify(recipients_list, final_alert_list):
 

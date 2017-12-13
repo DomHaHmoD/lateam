@@ -7,22 +7,32 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-recipients_list = ["dominique.hathi@gmail.com","maxime.girma@hotmail.fr","kev_wfc@hotmail.fr","raoultson@yahoo.fr"]
+#recipients_list = ["dominique.hathi@gmail.com","maxime.girma@hotmail.fr","kev_wfc@hotmail.fr","raoultson@yahoo.fr"]
+#recipients_list = ["dominique.hathi@gmail.com"]
+#alerte_list = ['ferrari', 'tabouret']
+#alerte_list = ['ferrari']
 
-alerte_list = ["ferrari"]
+def notify(recipients_list, alert_list):
 
+    name_list = []
+    for alert in alert_list:
+        name_list.append(alert.name)
 
-def notify(recipients_list, alerte_list):
+    COMMASPACE = ','
 
     #objet qui bouge
-    objet = alerte_list
-    print("ceci est objet:",objet)
+    objetquibouge = list(name_list)
+    """if len(objetquibouge) > 1:
+        print("ceci est objet 1:",objetquibouge)
+        ', '.join(objetquibouge)
+        print("ceci est objet:",objetquibouge)
+    else:
+        ', '.join(objetquibouge)"""
 
     #date
     date = datetime.datetime.now()
 
-    COMMASPACE = ','
-
+    #gestion du mail
     msg = MIMEMultipart()
     msg['From'] = 'secure.stand2017@gmail.com'
     msg['To'] = COMMASPACE.join(recipients_list)
@@ -34,7 +44,7 @@ def notify(recipients_list, alerte_list):
     
     Cordialement,
     Le systeme SecureStand
-    """.format(objet, date)
+    """.format(objetquibouge, date)
     msg.attach(MIMEText(message))
     mailserver = smtplib.SMTP('smtp.gmail.com', 587)
     mailserver.ehlo()
@@ -49,5 +59,5 @@ def notify(recipients_list, alerte_list):
     #exec(open('writehistoric.py').read())
 
 
-notify(recipients_list,alerte_list)
+notify(recipients_list, alert_list)
 
