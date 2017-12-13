@@ -1,11 +1,11 @@
-# contexte
+# Contexte
 
 Nous sommes une equipe projet, en formation de dev au Cesi.
 
-# projet Securetand
+# Projet Securetand
 
-Dans le cadre de notre stage, nous devons réaliser un projet client.
-Nous l'appelerons SecureStand
+Dans le cadre de notre stage, nous avons réalisé un projet client.
+Nous l'appelons SecureStand
 
 Notre client, une société de sécurité, veut un produit lui permettant de surveiller des objets (pc portable, 
 coffre, etc...) sur un stand d'exposition.
@@ -15,13 +15,13 @@ Les pré-requis:
 - utilisation d'un Raspberry Pi 3 (wifi et bluetooth 4.0)
 - utilisation d'un capteur Jaalee
 
-# lateam
+# Lateam
 
 Notre équipe est constituée de 4 stagiaires, Kevin Georget, Maxime Girma, Dominique Ha-Thi et Komlagan Tekou.
 
-# methodologie
+# Methodologie
 
-Nous implémenterons la méthode Agile.
+Nous nous sommes inspirés de la méthode Agile.
 
 # Gestion de projet
 
@@ -41,7 +41,7 @@ cette fonction permet
 
 le fonctionnement est opérationnel.
 
-# remerciements
+# Remerciements
 
 recemerciements à nos intervenants pour leur aide.
 
