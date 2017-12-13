@@ -33,6 +33,15 @@ Le choix du langage est imposé par la formation et nous travaillerons en python
 Nous importerons les bibliothèques smtp pour l'envoi de mail et bluepy pour le scan des objets blueooth.
 
 l'architecture logicielle est orchestré par main.py
+cette fonction permet
+- le scan des objets autour du Raspberry
+- le traitement (ou filtre) des objets du clients à surveiller
+- l'envoi d'un email à un destinataire
+- l'hiistorisation des alertes
+
+le fonctionnement est opérationnel.
 
 # remerciements
+
+recemerciements à nos intervenants pour leur aide.
 
