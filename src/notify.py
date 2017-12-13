@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
-#
-#
-#
-#
-#
+'''
+DominiqueHathi
+11/12/2017
+version 0.9
+
+La fonction prend en argument la liste des destinataires, des alertes et des alertes en attente.
+Elle envoie une alerte correspondant aux listes aux destinataires.
+Elle renvoie au MAIN un False en cas d'erreur.
+'''
 
 import time
 import datetime # import pour gérer les dates

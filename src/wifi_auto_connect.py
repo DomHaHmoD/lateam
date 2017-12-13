@@ -1,6 +1,13 @@
 #creer un crontab pour le faire marcher. toutes les 5 minutes
 #exemple : */5 *   * * *   root    /usr/local/bin/wifi_rebooter.sh
 
+'''
+MaximeGirma
+12/12/2017
+version 0.1
+
+Ce script vérifie l'état de la connexion wifi et si besoin la reboot.
+'''
 import os
 from time import sleep
 

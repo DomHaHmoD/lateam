@@ -1,15 +1,14 @@
 '''
-Kevin 12/12/2017
-Les deux fonctions de filtre viennent appliquer un traitement à la liste d'entrée et
+KevinGeorget
+12/12/2017
+version 0.9
+Les deux fonctions de filtre viennent appliquer un traitement à leur liste d'entrée et
 retournent une liste au MAIN
 
-La fonction mac_filter() appelée par le MAIN prend en argument la liste globale de tous les objets scannés
-par la fonction bluetooth_scan et la liste des capteurs configurés par l'utilisateur (sensors_list)
+La fonction mac_filter() prend en argument la liste globale de tous les objets scannés
+et la liste des capteur(sensors_list)
 Elle compare la liste globale aux adresses mac des objets stockés dans la liste des capteurs
-(sensors_list[].MAC)
-Si l'un des capteur se trouve dans la liste globale il est ajouté à la liste d'alerte (alert_list)
-La liste d'alerte est alors renvoyée au MAIN
-
+(sensors_list[].MAC). Si ils sont présents ils sont ajouté a une liste renvoyé au MAIN
 
 La fonction time_filter() prend la liste d'alerte en argument.
 Elle verifie que la dernière alerte pour un objet donné remonte bien à plus de <alert_frequence> secondes

@@ -1,5 +1,12 @@
-#lecture et traitement du fichier de config sensors_conf.csv
+'''
+KevinGeorget
+12/12/2017
+version 0.9
 
+get_sensors_data() definit une classe d'objet "sensor" puis ouvre un fichier CSV
+Elle construit ensuite une liste d'objets basées sur les caractèristiques du fichier CSV.
+Elle renvoie ensuite cette liste au MAIN.
+'''
 import csv
 
 def get_sensors_data():

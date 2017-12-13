@@ -1,12 +1,11 @@
 '''
-MaximeGirma 13/12/2017 -- 11H51 -- Version ?
-alert_frequence_conf.py contient la fonction get_alert_frequence_data()
-Cette fonction ouvre le fichier de configuration nommé "alert_frequence.csv" et en sctocke le contenu
-Ce contenu servira à définir le temps minimal à respecter entre deux alertes.
-Si le fichier de configuration est vide ou contient des élements invalide
-une valeur par defaut sera utilisée(60)
+MaximeGirma
+13/12/2017 -- 11H51
+Version 0.9
 
-Cette valeur est ensuite renvoyée à la fonction main.
+Cette fonction récupère le contenu d'un fichier CSV, s'assure qu'il est conforme (sinon utilise une
+valeur par défaut) puis le renvoie à la fonction MAIN
+Cette valeur servira à configurer le délai entre deux alertes.
 '''
 
 

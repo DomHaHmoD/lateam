@@ -1,11 +1,13 @@
 '''
-maximeGirma 11/12/2017 --
+maximeGirma
+11/12/2017
+version 0.9
+
 La fonction essaie de monter une clé usb durant 1 minute, ou jusqu'a qu'elle y arrive. Puis elle copie
 les fichiers de conf de la clé dans son repertoire de travail.
 la copie supprime les anciens fichiers si ils existent.
 si il n'y a pas de fichiers ou pas de clé usb, les fichiers de conf précédents sont utilisés.
 Si ils ne sont pas présents le programme s'arretera. Puis se relancera.'''
-
 
 import os
 from time import sleep

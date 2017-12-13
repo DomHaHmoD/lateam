@@ -1,16 +1,26 @@
 #!/usr/bin/env python3.5
-#Les 4 fonctions qui suivent returnent True ou une liste permettant au main de continuer
-#Elles n'ont aucune fonction réelle
+
+'''
+MaximeGirma -- KévinGeorget -- KomlaganTekou -- DominiqueHathi -- 13/12/2017
+La fonction Main est lancée par le systemd au démarrage du Raspberry
+Elle centralise toutes les autres fonctions et organise l'ensemble du système.
+
+Elle apelle des fonctions pour charger la configuration et s'assurer de la connexion internet.
+
+Commence ensuite une boucle infinie dans laquelle on va:
+1)Scanner les signaux bluetooth -- bluetooth_scan()
+2)Traiter les signaux pour ne garder que les pertinents-- mac_filter(), time_filter()
+3)envoyer des alertes par e-mail-- notify()
+4)Ecrit dans l'historique -- write_histo()
+5)Eventuellement, gestion des erreurs dues à une deconnexion wifi -- waiting_list()
+A chaque étape des sécurités viennent s'assurer de la bonne marche du système.
+'''
 
 
-
-
-#import des fichiers .py
-#on commence par importer les fichiers de configuration de la clé usb
 
 from auto_mount import *
-auto_mount()
-
+auto_mount()#on commence par importer les fichiers de configuration de la clé usb
+#import des fichiers .py
 from blescan import *
 from alert_frequence_conf import *
 from recipients_conf import *
@@ -75,10 +85,3 @@ if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le m
         else:                           #si le mail a échoué
             for alert in final_alert_list:
                 waiting_list.append(alert)#ajout des alertes a la waiting list pour le prochain tour
-
-
-#else:
-#    return 0
-
-#les deux dernieres lignes sont commenté pour le moment car sinon ca fait planter le script.
-# (pas de return sur la "racine")

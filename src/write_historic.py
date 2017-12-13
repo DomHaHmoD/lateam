@@ -1,6 +1,13 @@
 #!/usr/bin/env python3.5
 #-*- coding: utf-8 -*-
+'''
+DominiqueHathi
+11/12/2017
+version 0.9
 
+La fonction écrit un historique dans un fichier texte. Cet historique comprend le nom des capteurs envoyés
+par e-mail, l'heure et la date ainsi que les destinataires.
+'''
 import datetime # import pour gérer les dates
 import csv
 

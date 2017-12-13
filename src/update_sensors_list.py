@@ -1,3 +1,12 @@
+'''
+MaximeGirma
+11/12/2017
+Version 0.9
+
+update_sensors_list() met à jour l'heure de la dernière alerte des objets de sensors_list.
+Renvoie la liste mise à jour à MAIN.
+'''
+
 import time
 
 def update_sensors_list(sensors_list,final_alert_list):

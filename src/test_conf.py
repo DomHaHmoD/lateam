@@ -1,3 +1,11 @@
+'''
+MaximeGirma
+8/12/2017
+version 0.9
+
+test_conf vérifie la présence de fichiers de configurations et la connectivité internet.
+Renvoie True si tout est OK, False si l'un des deux manque.
+'''
 import os
 
 def test_conf_file():
