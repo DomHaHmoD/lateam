@@ -31,6 +31,9 @@ def auto_mount():
     os.system("cp -f /mnt/usbStick/recipients_conf.csv /home/pi/src/recipients_conf.csv")
     os.system("cp -f /mnt/usbStick/sensors_conf.csv /home/pi/src/sensors_conf.csv")
     os.system("cp -f /mnt/usbStick/alert_frequence.csv /home/pi/src/alert_frequence.csv")
+    os.system("cp -f /home/pi/src/historique.csv /mnt/usbStick/historique.csv")
+
+
     sleep(1)
 
 
