@@ -28,7 +28,7 @@ def get_alert_frequence_data():
         alert_frequence = 60 #assignation valeur par défaut
 
     if alert_frequence < 0: # on verifie que l'entier est positif
-        alert_frequence = 60;#assignation valeur par defaut
+        alert_frequence = 60 #assignation valeur par defaut
 
     print(alert_frequence,"est la frequence d'alerte")#print de test
     return alert_frequence

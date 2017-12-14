@@ -7,6 +7,7 @@ test_conf vérifie la présence de fichiers de configurations et la connectivit�
 Renvoie True si tout est OK, False si l'un des deux manque.
 '''
 import os
+import time
 
 def test_conf_file():
     try:
