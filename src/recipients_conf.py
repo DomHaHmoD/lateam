@@ -17,8 +17,8 @@ def get_recipients_data():
         recipients = csv.reader(file, delimiter=',')
         file.readline() # on consomme la 1ere ligne (entrées tableau)
 
-        for raw in recipients:              #pour chaque ligne on ajoute les adresses mail dans la liste
-            recipients_list.append(raw[1])
+        for row in recipients:              #pour chaque ligne on ajoute les adresses mail dans la liste
+            recipients_list.append(row[1])
 
     return recipients_list
 
