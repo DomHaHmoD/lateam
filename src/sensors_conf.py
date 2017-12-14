@@ -9,21 +9,21 @@ Elle renvoie ensuite cette liste au MAIN.
 '''
 import csv
 
+ #definition de la class capteur
+class Sensor:
+
+    def __init__(self,mac,name):
+        self.mac = mac
+        self.name = name
+        self.last_alert = 0
+
 def get_sensors_data():
-
-     #definition de la class capteur
-    class Sensor:
-
-        def __init__(self,mac,name):
-            self.mac = mac
-            self.name = name
-            self.last_alert = 0
 
     sensors_list_return = []   #création de la liste d'objets "sensors"
 
     with open('sensors_conf.csv') as file:     #ouverture du CSV config
         sensors_conf = csv.reader(file, delimiter=',')
-        file .readline()     #on consomme la 1ere ligne (entrée tableau)
+        file.readline()     #on consomme la 1ere ligne (entrée tableau)
         for row in sensors_conf:
             sensors_list_return.append(Sensor(row[0], row[1])) #création/insertion des objets dans la liste
 
