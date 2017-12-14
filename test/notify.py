@@ -1,33 +1,27 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
+'''
+DominiqueHathi
+11/12/2017
+version 0.9
 
+La fonction prend en argument la liste des destinataires, des alertes et des alertes en attente.
+Elle envoie une alerte correspondant aux listes aux destinataires.
+Elle renvoie au MAIN un False en cas d'erreur.
+'''
 
+#import time
 import datetime # import pour gérer les dates
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-#recipients_list = ["dominique.hathi@gmail.com","maxime.girma@hotmail.fr","kev_wfc@hotmail.fr","raoultson@yahoo.fr"]
-#recipients_list = ["dominique.hathi@gmail.com"]
-#alerte_list = ['ferrari', 'tabouret']
-#alerte_list = ['ferrari']
-
-def notify(recipients_list, alert_list):
+def notify(recipients_list, final_alert_list):
 
     name_list = []
-    for alert in alert_list:
-        name_list.append(alert.name)
 
-    COMMASPACE = ','
-
-    #objet qui bouge
-    objetquibouge = list(name_list)
-    """if len(objetquibouge) > 1:
-        print("ceci est objet 1:",objetquibouge)
-        ', '.join(objetquibouge)
-        print("ceci est objet:",objetquibouge)
-    else:
-        ', '.join(objetquibouge)"""
+    for item in final_alert_list:  # on crée une liste de noms à partir de chaque objet
+        name_list.append(item.name)
 
     #date
     date = datetime.datetime.now()
@@ -35,16 +29,16 @@ def notify(recipients_list, alert_list):
     #gestion du mail
     msg = MIMEMultipart()
     msg['From'] = 'secure.stand2017@gmail.com'
-    msg['To'] = COMMASPACE.join(recipients_list)
+    msg['To'] = ','.join(recipients_list)
     msg['Subject'] = 'Alerte sur votre stand'
     message = """Bonjour,
-    le capteur de votre stand positionné sur le(la) {}
-    s'est déclanché
+    le (les) capteur(s) de votre stand positionné(s) sur le(la) {}
+    s'est déclenché
     à {}
-    
+
     Cordialement,
     Le systeme SecureStand
-    """.format(objetquibouge, date)
+    """.format(name_list, date)
     msg.attach(MIMEText(message))
     mailserver = smtplib.SMTP('smtp.gmail.com', 587)
     mailserver.ehlo()
@@ -55,9 +49,4 @@ def notify(recipients_list, alert_list):
     print("mail envoyé")
     mailserver.quit()
 
-    # appelle d'une fonction dans un file externe
-    #exec(open('writehistoric.py').read())
-
-
-notify(recipients_list, alert_list)
-
+    return True

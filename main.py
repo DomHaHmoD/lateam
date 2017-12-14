@@ -56,6 +56,8 @@ if test_conf_file() : #si le test renvoie vrai on peut y aller, sinon, on quitte
     alert_frequence = get_alert_frequence_data()      #fréquence d'alerte choisie par l'utilisateur RECUP DANS CSV!!!!
 
 #    send_statut() # éventuellement pour alerter que le systeme à bien demarré
+    notify(recipients_list, final_alert_list)
+
     while True: # A partir d'ici le programme tournera jusqu'a l'arret du rasp
         print("on est dans la boucle")
         global_list = bluetooth_scan() #On recupere notre liste d'objets scannés
