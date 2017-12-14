@@ -25,7 +25,6 @@ def bluetooth_scan():
 
     return global_list
 
-print(bluetooth_scan())
 
 """def mac_filter(global_list,sensors_list): #compare les MAC des appareils bluetooth scannés avec les MAC des capteurs
 

@@ -16,31 +16,31 @@ Commence ensuite une boucle infinie dans laquelle on va:
 A chaque étape des sécurités viennent s'assurer de la bonne marche du système.
 '''
 
-
-
-from auto_mount import *
+from .auto_mount import auto_mount
 auto_mount()#on commence par importer les fichiers de configuration de la clé usb
 #import des fichiers .py
-from blescan import *
-from alert_frequence_conf import *
-from recipients_conf import *
-from sensors_conf import *
-from filters import *
-from notify import *
-from update_sensors_list import *
-from test_conf import *
-from notify import *
-from write_historic import *
-#import des biblios
-from bluepy.btle import Scanner, DefaultDelegate
-import time
-import csv
-import os
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+from .blescan import bluetooth_scan
+from .alert_frequence_conf import get_alert_frequence_data
+from .recipients_conf import get_recipients_data
+from .sensors_conf import get_sensors_data
+from .filters import mac_filter
+from .filters import time_filter
+from .notify import notify
+from .update_sensors_list import update_sensors_list
+from .test_conf import test_conf_file
+from .write_historic import write_histo
 
-if test_conf() : #si le test renvoie vrai on peut y aller, sinon, on quitte le main
+
+#import des biblios
+#from bluepy.btle import Scanner, DefaultDelegate
+import time
+#import csv
+#import os
+#import smtplib
+#from email.mime.multipart import MIMEMultipart
+#from email.mime.text import MIMEText
+
+if test_conf_file() : #si le test renvoie vrai on peut y aller, sinon, on quitte le main
 
     # Déclaration des objets utiles au programme:
     global_list = []    #liste des appareils bluetooth scannés par le BLE

@@ -10,7 +10,7 @@ Elle envoie une alerte correspondant aux listes aux destinataires.
 Elle renvoie au MAIN un False en cas d'erreur.
 '''
 
-import time
+#import time
 import datetime # import pour gérer les dates
 import smtplib
 from email.mime.multipart import MIMEMultipart
