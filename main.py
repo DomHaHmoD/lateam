@@ -16,19 +16,19 @@ Commence ensuite une boucle infinie dans laquelle on va:
 A chaque étape des sécurités viennent s'assurer de la bonne marche du système.
 '''
 
-from .auto_mount import auto_mount
+from src.auto_mount import auto_mount
 auto_mount()#on commence par importer les fichiers de configuration de la clé usb
 #import des fichiers .py
-from .blescan import bluetooth_scan
-from .alert_frequence_conf import get_alert_frequence_data
-from .recipients_conf import get_recipients_data
-from .sensors_conf import get_sensors_data
-from .filters import mac_filter
-from .filters import time_filter
-from .notify import notify
-from .update_sensors_list import update_sensors_list
-from .test_conf import test_conf_file
-from .write_historic import write_histo
+from src.blescan import bluetooth_scan
+from src.alert_frequence_conf import get_alert_frequence_data
+from src.recipients_conf import get_recipients_data
+from src.sensors_conf import get_sensors_data
+from src.filters import mac_filter
+from src.filters import time_filter
+from src.notify import notify
+from src.update_sensors_list import update_sensors_list
+from src.test_conf import test_conf_file
+from src.write_historic import write_histo
 
 
 #import des biblios
@@ -40,8 +40,11 @@ import time
 #from email.mime.multipart import MIMEMultipart
 #from email.mime.text import MIMEText
 
-if test_conf_file() : #si le test renvoie vrai on peut y aller, sinon, on quitte le main
 
+print("LA")
+
+if test_conf_file() : #si le test renvoie vrai on peut y aller, sinon, on quitte le main
+    print("DEDANS")
     # Déclaration des objets utiles au programme:
     global_list = []    #liste des appareils bluetooth scannés par le BLE
     sensors_list = get_sensors_data()   #liste des objets capteurs déployés (sensors_conf.py)

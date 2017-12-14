@@ -8,12 +8,13 @@ d'email à la fonction MAIN.
 '''
 
 import csv
+from .conf import DATA_DIR
 
 def get_recipients_data():
 
     recipients_list = []
 
-    with open('recipients_conf.csv') as file:     #ouverture du CSV config
+    with open(DATA_DIR + '/recipients_conf.csv') as file:     #ouverture du CSV config
         recipients = csv.reader(file, delimiter=',')
         file.readline() # on consomme la 1ere ligne (entrées tableau)
 

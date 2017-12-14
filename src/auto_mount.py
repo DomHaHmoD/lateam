@@ -28,10 +28,10 @@ def auto_mount():
 
     #copie des fichiers de conf
 
-    os.system("cp -f /mnt/usbStick/recipients_conf.csv /home/pi/src/recipients_conf.csv")
-    os.system("cp -f /mnt/usbStick/sensors_conf.csv /home/pi/src/sensors_conf.csv")
-    os.system("cp -f /mnt/usbStick/alert_frequence.csv /home/pi/src/alert_frequence.csv")
-    os.system("cp -f /home/pi/src/historique.csv /mnt/usbStick/historique.csv")
+    os.system("cp -f /mnt/usbStick/recipients_conf.csv /home/pi/securestand/src/conf/recipients_conf.csv")
+    os.system("cp -f /mnt/usbStick/sensors_conf.csv /home/pi/securestand/src/conf/sensors_conf.csv")
+    os.system("cp -f /mnt/usbStick/alert_frequence.csv /home/pi/securestand/src/conf/alert_frequence.csv")
+    os.system(" sudo cp -f /home/pi/securestand/src/conf/historique.csv /mnt/usbStick/historique.csv")
 
 
     sleep(1)

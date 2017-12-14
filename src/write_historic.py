@@ -10,6 +10,7 @@ par e-mail, l'heure et la date ainsi que les destinataires.
 '''
 import datetime # import pour gérer les dates
 import csv
+from .conf import DATA_DIR
 
 """recipients_list = ["dominique.hathi@gmail.com","maxime.girma@hotmail.fr","kev_wfc@hotmail.fr","raoultson@yahoo.fr"]
 #recipients_list = ["dominique.hathi@gmail.com"]
@@ -33,7 +34,7 @@ def write_histo(recipients_list, final_alert_list):
     print(data)
 
     # utilitaire pour écrire dans un file historique
-    with open('historique.csv','a') as csvfile:
+    with open(DATA_DIR + '/historique.csv','a') as csvfile:
         newFileWriter = csv.writer(csvfile)
         newFileWriter.writerow(data)
         print('yess write')
