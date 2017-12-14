@@ -61,11 +61,8 @@ def notify(recipients_list, final_alert_list):
         subject, content = format_welcome_mail(date)
         print(subject, content)
     else:
-        for item in final_alert_list:  # on crée une liste de noms à partir de chaque objet
-            name_list.append(item.name)
-
         #gestion du mail
-        subject, content = format_alert_mail(name_list, date)
+        subject, content = format_alert_mail([item.name for item in final_alert_list], date)
 
         #msg.attach(MIMEText(message))
 
