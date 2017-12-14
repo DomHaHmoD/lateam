@@ -20,30 +20,13 @@ import csv
 from .conf import DATA_DIR
 
 
-
-
-# definition de la class capteur
-
-
-
-
-
-<<<<<<< HEAD
-class Sensor:
-
-
-
-    def __init__(self, mac, name):
-
-=======
-
 # definition de la class capteur
 
 
 class Sensor:
 
     def __init__(self, mac, name):
->>>>>>> 518984f1ed6e5d1754ba2a0c2c21ce633d750803
+
         self.mac = mac
 
         self.name = name
@@ -51,23 +34,10 @@ class Sensor:
         self.last_alert = 0
 
 
-<<<<<<< HEAD
-
-
-
 def get_sensors_data():
 
 
     sensors_list_return = []   # création de la liste d'objets "sensors"
-=======
-def get_sensors_data():
-
-    sensors_list_return = []   # création de la liste d'objets "sensors"
-
-    with open('sensors_conf.csv') as file:     # ouverture du CSV config
-        sensors_conf = csv.reader(file, delimiter=',')
-        file.readline()     # on consomme la 1ere ligne (entrée tableau)
->>>>>>> 518984f1ed6e5d1754ba2a0c2c21ce633d750803
 
     with open(DATA_DIR + '/sensors_conf.csv') as file:     # ouverture du CSV config
         sensors_conf = csv.reader(file, delimiter=',')
@@ -75,16 +45,13 @@ def get_sensors_data():
         for row in sensors_conf:
 
             if row[1] == "":
-<<<<<<< HEAD
+
 
                 sensors_list_return.append(Sensor(row[0], "Aucun objet associé"))  # création/insertion des objets dans
 
                 # la liste
 
-=======
-                sensors_list_return.append(Sensor(row[0], "Aucun objet associé"))  # création/insertion des objets dans
-                # la liste
->>>>>>> 518984f1ed6e5d1754ba2a0c2c21ce633d750803
+
             else:
 
                 sensors_list_return.append(Sensor(row[0], row[1]))
@@ -93,33 +60,17 @@ def get_sensors_data():
 
     return sensors_list_return
 
-<<<<<<< HEAD
 
 
 # TESTS
 
 
-
-
-
-sensors_list = get_sensors_data()
-
-
-
-print(sensors_list[0].mac, sensors_list[1].mac, sensors_list[2].mac, sensors_list[3].mac, sensors_list[4].mac, sensors_list[5].mac, sensors_list[6].mac)
-
-print(sensors_list[0].name, sensors_list[1].name, sensors_list[2].name, sensors_list[3].name, sensors_list[4].name, sensors_list[5].name, sensors_list[6].name)
-
-
-=======
-# TESTS
 
 
 sensors_list = get_sensors_data()
 
 print(sensors_list[0].mac, sensors_list[1].mac, sensors_list[2].mac, sensors_list[3].mac, sensors_list[4].mac, sensors_list[5].mac, sensors_list[6].mac, sensors_list[7].mac)
 print(sensors_list[0].name, sensors_list[1].name, sensors_list[2].name, sensors_list[3].name, sensors_list[4].name, sensors_list[5].name, sensors_list[6].name, sensors_list[7].name)
->>>>>>> 518984f1ed6e5d1754ba2a0c2c21ce633d750803
 
 """name_list = sensors_conf[0]  # on sépare les données dans 2 listes distinctes
 

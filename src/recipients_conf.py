@@ -15,11 +15,8 @@ def get_recipients_data():
 
     recipients_list = []
 
-<<<<<<< HEAD
+
     with open(DATA_DIR + '/recipients_conf.csv') as file:     #ouverture du CSV config
-=======
-    with open('recipients_conf.csv') as file:     # ouverture du CSV config
->>>>>>> 518984f1ed6e5d1754ba2a0c2c21ce633d750803
         recipients = csv.reader(file, delimiter=',')
         file.readline()  # on consomme la 1ere ligne (entrées tableau)
 
