@@ -40,7 +40,7 @@ def get_sensors_data():
     sensors_list_return = []   # création de la liste d'objets "sensors"
 
     with open(DATA_DIR + '/sensors_conf.csv') as file:     # ouverture du CSV config
-        sensors_conf = csv.reader(file, delimiter=',')
+        sensors_conf = list(csv.reader(file, delimiter=','))
         file.readline()     # on consomme la 1ere ligne (entrée tableau)
         for row in sensors_conf:
 
