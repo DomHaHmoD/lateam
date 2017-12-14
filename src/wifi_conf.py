@@ -8,10 +8,10 @@ configuration.
 '''
 import os
 import csv
-
+from .conf import DATA_DIR
 def get_conf_wifi():
     return_list = []
-    with open('config_wifi.csv') as file: # ouverture du csv
+    with open(DATA_DIR + '/config_wifi.csv') as file: # ouverture du csv
         temporary_list = list(csv.reader(file,delimiter=","))
 
         return_list.append(temporary_list[0][1])
