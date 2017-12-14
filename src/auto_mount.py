@@ -31,6 +31,7 @@ def auto_mount():
     os.system("cp -f /mnt/usbStick/recipients_conf.csv /home/pi/securestand/src/conf/recipients_conf.csv")
     os.system("cp -f /mnt/usbStick/sensors_conf.csv /home/pi/securestand/src/conf/sensors_conf.csv")
     os.system("cp -f /mnt/usbStick/alert_frequence.csv /home/pi/securestand/src/conf/alert_frequence.csv")
+    os.system("cp -f /mnt/usbStick/config_wifi.csv /home/pi/securestand/src/conf/config_wifi.csv")
     os.system(" sudo cp -f /home/pi/securestand/src/conf/historique.csv /mnt/usbStick/historique.csv")
 
 
