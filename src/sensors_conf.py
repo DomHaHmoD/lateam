@@ -14,10 +14,10 @@ def get_sensors_data():
      #definition de la class capteur
     class Sensor:
 
-    	def __init__(self,mac,name):
-    		self.mac = mac
-    		self.name = name
-    		self.last_alert = 0
+        def __init__(self,mac,name):
+            self.mac = mac
+            self.name = name
+            self.last_alert = 0
 
     sensors_list_return = []   #création de la liste d'objets "sensors"
 
