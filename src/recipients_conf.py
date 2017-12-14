@@ -9,17 +9,19 @@ d'email à la fonction MAIN.
 
 import csv
 
+
 def get_recipients_data():
 
     recipients_list = []
 
-    with open('recipients_conf.csv') as file:     #ouverture du CSV config
+    with open('recipients_conf.csv') as file:     # ouverture du CSV config
         recipients = csv.reader(file, delimiter=',')
-        file.readline() # on consomme la 1ere ligne (entrées tableau)
+        file.readline()  # on consomme la 1ere ligne (entrées tableau)
 
-        for row in recipients:              #pour chaque ligne on ajoute les adresses mail dans la liste
+        for row in recipients:              # pour chaque ligne on ajoute les adresses mail dans la liste
             recipients_list.append(row[1])
 
     return recipients_list
 
-print(get_recipients_data()) #test
+
+print(get_recipients_data())  # test
