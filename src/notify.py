@@ -16,22 +16,30 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-def notify(recipients_list, final_alert_list):
+name_list = []
 
-    name_list = []
+#date
+date = datetime.datetime.now()
 
-    for item in final_alert_list:  # on crée une liste de noms à partir de chaque objet
-        name_list.append(item.name)
+def format_welcome_mail(date):
+    #partie entete de mail pour le démarrage
+    subject = 'SecureStand vous souhaite le bienvenue'
 
-    #date
-    date = datetime.datetime.now()
+    # partie corps de message pour le démarrage
+    content = """Bonjour,
+    votre système SecureStand a bien démarré
+    à {}
+    Cordialement,
+    Le systeme SecureStand
+    """.format(date)
+    return subject, content
 
-    #gestion du mail
-    msg = MIMEMultipart()
-    msg['From'] = 'secure.stand2017@gmail.com'
-    msg['To'] = ','.join(recipients_list)
-    msg['Subject'] = 'Alerte sur votre stand'
-    message = """Bonjour,
+def format_alert_mail(name_list, date):
+     #partie entete de mail pour les alertes
+    subject = 'Alerte sur votre stand'
+
+    # partie corps de message pour les alertes
+    content = """Bonjour,
     le (les) capteur(s) de votre stand positionné(s) sur le(la) {}
     s'est déclenché
     à {}
@@ -39,7 +47,31 @@ def notify(recipients_list, final_alert_list):
     Cordialement,
     Le systeme SecureStand
     """.format(name_list, date)
-    msg.attach(MIMEText(message))
+    return subject, content
+
+
+def notify(recipients_list, final_alert_list):
+
+    # partie entete de mal commune
+    msg = MIMEMultipart()
+    msg['From'] = 'secure.stand2017@gmail.com'
+    msg['To'] = ','.join(recipients_list)
+    print(final_alert_list)
+    if len(final_alert_list) == 0:
+        subject, content = format_welcome_mail(date)
+        print(subject, content)
+    else:
+        for item in final_alert_list:  # on crée une liste de noms à partir de chaque objet
+            name_list.append(item.name)
+
+        #gestion du mail
+        subject, content = format_alert_mail(name_list, date)
+
+        #msg.attach(MIMEText(message))
+
+    msg['Subject'] = subject
+    msg.attach(MIMEText(content))
+    # partie gestion de mail
     mailserver = smtplib.SMTP('smtp.gmail.com', 587)
     mailserver.ehlo()
     mailserver.starttls()
@@ -50,3 +82,4 @@ def notify(recipients_list, final_alert_list):
     mailserver.quit()
 
     return True
+
