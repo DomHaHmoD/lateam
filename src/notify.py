@@ -7,6 +7,8 @@ version 0.9
 
 La fonction prend en argument la liste des destinataires, des alertes et des alertes en attente.
 Elle envoie une alerte correspondant aux listes aux destinataires.
+- au démarrage pour indique au client que le système est en fonction
+- ensuite, pour alerter en cas de mouvement d'objet
 Elle renvoie au MAIN un False en cas d'erreur.
 '''
 
