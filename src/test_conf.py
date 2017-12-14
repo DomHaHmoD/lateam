@@ -8,17 +8,18 @@ Renvoie True si tout est OK, False si l'un des deux manque.
 '''
 import os
 import time
+from .conf import DATA_DIR
 
 def test_conf_file():
     try:
-        with open("recipients_conf.csv","r") as file:
+        with open(DATA_DIR + "/recipients_conf.csv","r") as file:
             a = 0
             print("there is a recipient_conf.csv")
     except FileNotFoundError:
         return False
 
     try:
-        with open("sensors_conf.csv","r") as file:
+        with open(DATA_DIR + "/sensors_conf.csv","r") as file:
             a = 0
             print("there is a sensors_conf.csv")
     except FileNotFoundError:
