@@ -1,3 +1,5 @@
+
+
 # Context
 
 Nous sommes une equipe projet, en formation de dev au Cesi.
@@ -40,6 +42,17 @@ cette fonction permet
 - l'hiistorisation des alertes
 
 le fonctionnement est opérationnel.
+
+# Utilisation
+
+pour utiliser l'application, il faut:
+- python3
+- la librairie Bluepy
+
+Dans la solution complète, le raspberry execute en automatique le programme.
+
+Pour l'éxécutermanuellement :
+$ python3 main.py
 
 # Remerciements
 
