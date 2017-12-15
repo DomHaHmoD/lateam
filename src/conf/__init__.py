@@ -1,3 +1,9 @@
+# création d'un path pour les fichiers de conf
+#
+#DominiqueHathi
+#11/12/2017
+#version 1.0
+
 import os
 
 def get_current_dir(current_file):
