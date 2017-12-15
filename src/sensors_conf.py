@@ -36,39 +36,24 @@ class Sensor:
 
 def get_sensors_data():
 
-
     sensors_list_return = []   # création de la liste d'objets "sensors"
 
     with open(DATA_DIR + '/sensors_conf.csv') as file:     # ouverture du CSV config
         sensors_conf = list(csv.reader(file, delimiter=','))
         file.readline()     # on consomme la 1ere ligne (entrée tableau)
         for row in sensors_conf:
-
             if row[1] == "":
-
-
                 sensors_list_return.append(Sensor(row[0], "Aucun objet associé"))  # création/insertion des objets dans
-
                 # la liste
-
-
             else:
-
                 sensors_list_return.append(Sensor(row[0], row[1]))
 
-
-
     return sensors_list_return
-
-
 
 # TESTS
 
 
-
-
 sensors_list = get_sensors_data()
-
 print(sensors_list[0].mac, sensors_list[1].mac, sensors_list[2].mac, sensors_list[3].mac, sensors_list[4].mac, sensors_list[5].mac, sensors_list[6].mac, sensors_list[7].mac)
 print(sensors_list[0].name, sensors_list[1].name, sensors_list[2].name, sensors_list[3].name, sensors_list[4].name, sensors_list[5].name, sensors_list[6].name, sensors_list[7].name)
 
