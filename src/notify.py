@@ -19,13 +19,14 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
-#add for attachment file
+from email import encoders
+# add for attachment file
 from .conf import DATA_DIR
 #from email.mime.application import MIMEApplication
 
 #add for attachment file
-recipients_list = ['dominique.hathi@wanadoo.fr', 'maxime.girma@hotmail.fr']
-final_alert_list = []
+#recipients_list = ['dominique.hathi@wanadoo.fr', 'maxime.girma@hotmail.fr']
+#final_alert_list = []
 
 name_list = []
 
@@ -78,8 +79,8 @@ def notify(recipients_list, final_alert_list):
 
         #add envoi d'un fichier historique
         part = MIMEBase('application', "octet-stream")
-        part.set_payload(open(DATA_DIR + '/historique.csv',"r").read())
-        #Encoders.encode_base64(part)
+        part.set_payload(open(DATA_DIR + '/historique.csv',"rb").read())
+        encoders.encode_base64(part)
         part.add_header('Content-Disposition', 'attachment; filename="{}"'
                         .format(os.path.basename(DATA_DIR + '/historique.csv')))
         msg.attach(part)
@@ -91,6 +92,7 @@ def notify(recipients_list, final_alert_list):
 
     # partie gestion de mail
     msg['Subject'] = subject
+    #msg.attach(MIMEText(content, "plain", "utf-8"))
     msg.attach(MIMEText(content))
     mailserver = smtplib.SMTP('smtp.gmail.com', 587)
     mailserver.ehlo()
@@ -104,4 +106,4 @@ def notify(recipients_list, final_alert_list):
     return True
 
 #add for attachment file for test
-notify(recipients_list, final_alert_list)
+#notify(recipients_list, final_alert_list)

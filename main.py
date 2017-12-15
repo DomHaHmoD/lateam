@@ -1,4 +1,5 @@
 #!/usr/bin/env python3.5
+#-*- coding: utf-8 -*-
 
 '''
 MaximeGirma -- KévinGeorget -- KomlaganTekou -- DominiqueHathi -- 13/12/2017
