@@ -36,7 +36,9 @@ def format_welcome_mail(date):
     content = """Bonjour,
     votre système SecureStand a bien démarré
     à {}
-
+    
+    en pièce jointe vous trouverez un fichier récapitulatif des alertes.
+    
     Cordialement,
     Le systeme SecureStand
     """.format(date)
