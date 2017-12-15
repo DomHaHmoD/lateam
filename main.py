@@ -29,7 +29,7 @@ from src.notify import notify
 from src.update_sensors_list import update_sensors_list
 from src.test_conf import test_conf_file
 from src.write_historic import write_histo
-
+from src.wifi_conf import wifi_conf
 
 #import des biblios
 #from bluepy.btle import Scanner, DefaultDelegate
@@ -54,7 +54,7 @@ if test_conf_file() : #si le test renvoie vrai on peut y aller, sinon, on quitte
     waiting_list = []   #liste d'attente contenant les capteurs pour qui le mail n'a pas pu être envoyé
     recipients_list = get_recipients_data()  #liste des destinataires des mails d'alerte (recipients_conf.py)
     alert_frequence = get_alert_frequence_data()      #fréquence d'alerte choisie par l'utilisateur RECUP DANS CSV!!!!
-
+    wifi_conf() #charge d'éventuelles login wifi 
 #    send_statut() # éventuellement pour alerter que le systeme à bien demarré
     notify(recipients_list, final_alert_list)
 

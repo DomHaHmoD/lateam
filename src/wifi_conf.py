@@ -40,5 +40,3 @@ def wifi_conf():
     wifi_safety_type = params_wifi[2]
 
     config_wpa_supplicant(wifi_SSID,wifi_PASSWRD,wifi_safety_type)
-
-wifi_conf()
