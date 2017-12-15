@@ -4,7 +4,7 @@
 '''
 MaximeGirma
 12/12/2017
-version 0.1
+version 1.0
 
 Ce script vérifie l'état de la connexion wifi et si besoin la reboot.
 '''

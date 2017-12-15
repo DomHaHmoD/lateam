@@ -1,7 +1,7 @@
 '''
 MaximeGirma
 11/12/2017
-Version 0.9
+Version 1.0
 
 update_sensors_list() met à jour l'heure de la dernière alerte des objets de sensors_list.
 Renvoie la liste mise à jour à MAIN.

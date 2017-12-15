@@ -1,7 +1,7 @@
 '''
 MaximeGirma
 13/12/2017 -- 11H51
-Version 0.9
+Version 1.0
 
 Cette fonction récupère le contenu d'un fichier CSV, s'assure qu'il est conforme (sinon utilise une
 valeur par défaut) puis le renvoie à la fonction MAIN

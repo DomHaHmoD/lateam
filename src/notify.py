@@ -3,7 +3,7 @@
 '''
 DominiqueHathi
 11/12/2017
-version 0.9
+version 1.0
 
 La fonction prend en argument la liste des destinataires, des alertes et des alertes en attente.
 Elle envoie une alerte correspondant aux listes aux destinataires.
@@ -12,21 +12,16 @@ Elle envoie une alerte correspondant aux listes aux destinataires.
 Elle renvoie au MAIN un False en cas d'erreur.
 '''
 
-#import time
+
 import os
-import datetime # import pour gérer les dates
+import datetime
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
-# add for attachment file
 from .conf import DATA_DIR
-#from email.mime.application import MIMEApplication
 
-#add for attachment file
-#recipients_list = ['dominique.hathi@wanadoo.fr', 'maxime.girma@hotmail.fr']
-#final_alert_list = []
 
 name_list = []
 
@@ -92,7 +87,6 @@ def notify(recipients_list, final_alert_list):
 
     # partie gestion de mail
     msg['Subject'] = subject
-    #msg.attach(MIMEText(content, "plain", "utf-8"))
     msg.attach(MIMEText(content))
     mailserver = smtplib.SMTP('smtp.gmail.com', 587)
     mailserver.ehlo()
@@ -104,6 +98,3 @@ def notify(recipients_list, final_alert_list):
     mailserver.quit()
 
     return True
-
-#add for attachment file for test
-#notify(recipients_list, final_alert_list)

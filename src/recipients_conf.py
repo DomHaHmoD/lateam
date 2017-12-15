@@ -1,7 +1,7 @@
 '''
 KevinGeorget
 11/12/2017
-version 0.9
+version 1.0
 
 get_recipient_data() ouvre un fichier CSV contenant les destinataires et renvoie la liste
 d'email à la fonction MAIN.

@@ -4,7 +4,7 @@ KevinGeorget
 
 12/12/2017
 
-version 0.9
+version 1.0
 
 
 

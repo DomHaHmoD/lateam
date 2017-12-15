@@ -1,7 +1,8 @@
 '''
 KevinGeorget
 12/12/2017
-version 0.9
+version 1.0
+
 Les deux fonctions de filtre viennent appliquer un traitement à leur liste d'entrée et
 retournent une liste au MAIN
 

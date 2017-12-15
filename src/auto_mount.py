@@ -1,7 +1,7 @@
 '''
 maximeGirma
 11/12/2017
-version 0.9
+version 1.0
 
 La fonction essaie de monter une clé usb durant 1 minute, ou jusqu'a qu'elle y arrive. Puis elle copie
 les fichiers de conf de la clé dans son repertoire de travail.

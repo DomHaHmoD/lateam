@@ -3,7 +3,7 @@
 '''
 DominiqueHathi
 11/12/2017
-version 0.9
+version 1.0
 
 La fonction écrit un historique dans un fichier texte. Cet historique comprend le nom des capteurs envoyés
 par e-mail, l'heure et la date ainsi que les destinataires.
@@ -12,18 +12,12 @@ import datetime # import pour gérer les dates
 import csv
 from .conf import DATA_DIR
 
-"""recipients_list = ["dominique.hathi@gmail.com","maxime.girma@hotmail.fr","kev_wfc@hotmail.fr","raoultson@yahoo.fr"]
-#recipients_list = ["dominique.hathi@gmail.com"]
-alert_list = ["ferrari","tabouret"]"""
-
-
 
 def write_histo(recipients_list, final_alert_list):
 
     date = str(datetime.datetime.now())
 
     #definiton de ce qu'il y a à écrire
-    #data = [final_alert_list, recipients_list, date]
     name_list = []
     for item in final_alert_list:
         name_list.append(item.name)

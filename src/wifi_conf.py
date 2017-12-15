@@ -1,11 +1,13 @@
 '''
 maximeGirma
 14/12/2017
-version 0.5
+version 1.0
+
 La fonction recupere le fichier de configuration wifi, regarde si le précendent fichier
 est différent, si c'est le cas elle charge le nouveau et redemmare pour charger la nouvelle
 configuration.
 '''
+
 import os
 import csv
 from .conf import DATA_DIR

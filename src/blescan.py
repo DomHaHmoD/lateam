@@ -1,7 +1,8 @@
 '''
 KevinGeorget
 13/12/2017
-Version 0.9
+Version 1.0
+
 La fonction bluetooth_scan utilise la librairie BluePy pour scanner tous les appareils bluetooth
 proches. La fonction récupère les adresses MAC de ces appareils et les stocke dans une liste (global_list)
 Cette liste d'adresse MAC est ensuite renvoyée à la fonction MAIN.
