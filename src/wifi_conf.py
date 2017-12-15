@@ -9,37 +9,36 @@ configuration.
 import os
 import csv
 from .conf import DATA_DIR
-def get_conf_wifi():
+
+def get_conf_wifi(): #recupere les données pour configurer le wi-fi
     return_list = []
-    with open(DATA_DIR + '/config_wifi.csv') as file: # ouverture du csv
-        temporary_list = list(csv.reader(file,delimiter=","))
+    with open(DATA_DIR + "/config_wifi.csv","r") as file: # ouverture du csv
+        params_wifi = list(csv.reader(file,delimiter=","))
+    return [param[1] for param in params_wifi[0:3]]#retourne SSID, PSSWD et type de securité
 
-        return_list.append(temporary_list[0][1])
-        return_list.append(temporary_list[1][1])
-        return_list.append(temporary_list[2][1])
-        print (return_list)
-    return return_list
-
-def config_wpa_supplicant(wifi_SSID,wifi_PASSWRD,wifi_safety_type):
-    connect_login = 'country=GB\nctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\n'
-    connect_login +='update_config=1\n\nnetwork={\n\t'
-    connect_login +='ssid="{}"\n\tpsk="{}"\n\t'.format(wifi_SSID,wifi_PASSWRD)
-    connect_login +='key_mgmt={}\n'.format(wifi_safety_type)
-    connect_login +='}'
+def config_wpa_supplicant(wifi_SSID,wifi_PASSWRD,wifi_safety_type):#chargement d'un template WPA_supplicant
+    with open(DATA_DIR + "/wpa_template","r") as wpa_template:
+#on remplit le template avec les infos recupérées precedemment
+        connect_login = wpa_template.read().format(wifi_SSID,wifi_PASSWRD,wifi_safety_type)
 
     with open("/etc/wpa_supplicant/wpa_supplicant.conf","r") as fichier_wpa:
         wpa_original = fichier_wpa.read()
 
     if wpa_original != connect_login:
-
+#On n'écrit que si les deux fichiers sont différents
         with open("/etc/wpa_supplicant/wpa_supplicant.conf","w") as fichier_wpa:
             fichier_wpa.write(connect_login)
-        os.system("sudo reboot")
+        os.system("sudo reboot")#on reboot pour charger la nouvelle conf
+    print("WIFI CORRECT")
 
-temporary_list = get_conf_wifi()
+def wifi_conf():
 
-wifi_SSID = temporary_list[0] #les deux variables sont des str
-wifi_PASSWRD = temporary_list[1]
-wifi_safety_type = temporary_list[2]
+    params_wifi = get_conf_wifi()
 
-config_wpa_supplicant(wifi_SSID,wifi_PASSWRD,wifi_safety_type)
+    wifi_SSID = params_wifi[0] #les deux variables sont des str
+    wifi_PASSWRD = params_wifi[1]
+    wifi_safety_type = params_wifi[2]
+
+    config_wpa_supplicant(wifi_SSID,wifi_PASSWRD,wifi_safety_type)
+
+wifi_conf()
