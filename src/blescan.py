@@ -10,16 +10,14 @@ Cette liste d'adresse MAC est ensuite renvoyée à la fonction MAIN.
 
 from bluepy.btle import Scanner
 
-def bluetooth_scan():
-    print("coucou je rentre dedans") #debug test
 
+def bluetooth_scan():
+
+    print("coucou je rentre dedans")  # debug test
 
     devices = Scanner().scan(10.0)
-    for dev in devices:
-        print(dev.addr)
-
     global_list = []
-    #injecte les adresse Mac de tous les appareils dans une global_list
+    # injecte les adresse Mac de tous les appareils dans une global_list
     for dev in devices:
         global_list.append(dev.addr)
 
