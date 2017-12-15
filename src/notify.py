@@ -13,10 +13,19 @@ Elle renvoie au MAIN un False en cas d'erreur.
 '''
 
 #import time
+import os
 import datetime # import pour gérer les dates
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+#add for attachment file
+from .conf import DATA_DIR
+#from email.mime.application import MIMEApplication
+
+#add for attachment file
+recipients_list = ['dominique.hathi@wanadoo.fr', 'maxime.girma@hotmail.fr']
+final_alert_list = []
 
 name_list = []
 
@@ -31,9 +40,11 @@ def format_welcome_mail(date):
     content = """Bonjour,
     votre système SecureStand a bien démarré
     à {}
+
     Cordialement,
     Le systeme SecureStand
     """.format(date)
+
     return subject, content
 
 def format_alert_mail(name_list, date):
@@ -59,18 +70,28 @@ def notify(recipients_list, final_alert_list):
     msg['From'] = 'secure.stand2017@gmail.com'
     msg['To'] = ','.join(recipients_list)
     print(final_alert_list)
+
     if len(final_alert_list) == 0:
+
+        #cas du mail de démarrage du sytème
         subject, content = format_welcome_mail(date)
+
+        #add envoi d'un fichier historique
+        part = MIMEBase('application', "octet-stream")
+        part.set_payload(open(DATA_DIR + '/historique.csv',"r").read())
+        #Encoders.encode_base64(part)
+        part.add_header('Content-Disposition', 'attachment; filename="{}"'
+                        .format(os.path.basename(DATA_DIR + '/historique.csv')))
+        msg.attach(part)
+
         print(subject, content)
     else:
-        #gestion du mail
+        #cas du mail alerte
         subject, content = format_alert_mail([item.name for item in final_alert_list], date)
 
-        #msg.attach(MIMEText(message))
-
+    # partie gestion de mail
     msg['Subject'] = subject
     msg.attach(MIMEText(content))
-    # partie gestion de mail
     mailserver = smtplib.SMTP('smtp.gmail.com', 587)
     mailserver.ehlo()
     mailserver.starttls()
@@ -82,3 +103,5 @@ def notify(recipients_list, final_alert_list):
 
     return True
 
+#add for attachment file for test
+notify(recipients_list, final_alert_list)
