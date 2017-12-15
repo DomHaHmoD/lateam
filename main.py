@@ -3,6 +3,9 @@
 
 '''
 MaximeGirma -- KévinGeorget -- KomlaganTekou -- DominiqueHathi -- 13/12/2017
+11/12/2017
+version 1.0
+
 La fonction Main est lancée par le systemd au démarrage du Raspberry
 Elle centralise toutes les autres fonctions et organise l'ensemble du système.
 
