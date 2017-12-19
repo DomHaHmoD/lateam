@@ -59,7 +59,7 @@ if test_conf_file():  # si le test renvoie vrai on peut y aller, sinon, on quitt
     recipients_list = get_recipients_data()  # liste des destinataires des mails d'alerte (recipients_conf.py)
     alert_frequence = get_alert_frequence_data()      # fréquence d'alerte choisie par l'utilisateur RECUP DANS CSV!!!!
 
-    wifi_conf()  # charge d'éventuelles login wifi
+    #wifi_conf()  # charge d'éventuelles login wifi
     notify(recipients_list, final_alert_list)  # envoie d'un message de bienvenue
 
     while True:  # A partir d'ici le programme tournera jusqu'a l'arret du rasp
