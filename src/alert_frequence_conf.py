@@ -12,7 +12,9 @@ Cette valeur servira à configurer le délai entre deux alertes.
 import csv
 from .conf import DATA_DIR
 
+
 def get_alert_frequence_data():
+
     alert_frequence = 0
 
     try:
@@ -32,5 +34,5 @@ def get_alert_frequence_data():
     if alert_frequence < 0: # on verifie que l'entier est positif
         alert_frequence = 60 #assignation valeur par defaut
 
-    print(alert_frequence,"est la frequence d'alerte")#print de test
+
     return alert_frequence
